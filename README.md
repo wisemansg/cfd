@@ -108,10 +108,6 @@ The simulation tracked the following parameters:
 
 ![PipeCFD5](PipeCFD5.png)
 
-[Open Web Viewer](https://YOUR_USERNAME.github.io/Pipe-CFD-Project/)
-
-[Download CFD Analysis PDF](pdf/CFD%20Analysis%20of%20Hot–Cold%20Water%20Mixing%20in%20a%20T-Junction%20Duct%20Using%20SolidWorks%20Flow%20Simulation.pdf)
-
 ---
 
 ## 🧠 8. Discussion
