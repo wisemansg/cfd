@@ -94,15 +94,23 @@ The simulation tracked the following parameters:
 | Shear Stress [Pa]             | 0                | 0.38            |
 | Total Enthalpy Flux [W/m²]    | -1.553 × 10⁸     | 6.952 × 10⁷     |
 
-### 7.2 Graphical Outputs (examples)
+### 7.2 Graphical Outputs
 
-- Velocity magnitude contours  
-- Pressure distribution  
-- Temperature contours  
-- Density variation  
-- Streamlines & flow paths  
+![PipeCFD0](PipeCFD0.png)
 
-*(Add your best contour plots, cut plots, surface plots, and streamline images here)*
+![PipeCFD1](PipeCFD1.png)
+
+![PipeCFD2](PipeCFD2.png)
+
+![PipeCFD3](PipeCFD3.png)
+
+![PipeCFD4](PipeCFD4.png)
+
+![PipeCFD5](PipeCFD5.png)
+
+[Open Web Viewer](https://YOUR_USERNAME.github.io/Pipe-CFD-Project/)
+
+[Download CFD Analysis PDF](pdf/CFD%20Analysis%20of%20Hot–Cold%20Water%20Mixing%20in%20a%20T-Junction%20Duct%20Using%20SolidWorks%20Flow%20Simulation.pdf)
 
 ---
 
