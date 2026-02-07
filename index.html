@@ -2,391 +2,360 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Globe Insights Explorer</title>
-  
-  <!-- Google Fonts: Inter -->
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
-  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>CFD Analysis — Hot & Cold Water Mixing in T-Junction Duct</title>
   <style>
-    :root {
-      --primary: #4f46e5;       /* Indigo accent */
-      --primary-dark: #4338ca;
-      --bg: linear-gradient(135deg, #1e3a8a, #3b82f6);
-      --card-bg: rgba(255, 255, 255, 0.98);
-      --text-dark: #0f172a;
-      --text-light: #64748b;
-      --shadow: 0 10px 25px rgba(0, 0, 0, 0.15);
-    }
-
-    * {
-      margin: 0;
-      padding: 0;
-      box-sizing: border-box;
-    }
-
     body {
-      font-family: 'Inter', system-ui, sans-serif;
-      background: var(--bg);
-      min-height: 100vh;
-      color: var(--text-dark);
-      padding: 2rem 1rem;
-    }
-
-    .app-container {
-      max-width: 900px;
+      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+      line-height: 1.68;
+      max-width: 960px;
       margin: 0 auto;
-    }
-
-    .header {
-      text-align: center;
-      margin-bottom: 2.5rem;
-      color: white;
-    }
-
-    .header h1 {
-      font-size: 2.8rem;
-      font-weight: 700;
-      letter-spacing: -0.5px;
-    }
-
-    .header p {
-      font-size: 1.1rem;
-      opacity: 0.9;
-      margin-top: 0.5rem;
-    }
-
-    .search-section {
-      display: flex;
-      flex-direction: column;
-      gap: 1rem;
-      background: var(--card-bg);
-      padding: 1.8rem;
-      border-radius: 1rem;
-      box-shadow: var(--shadow);
-      margin-bottom: 2rem;
-    }
-
-    #country-input {
-      padding: 1rem 1.2rem;
-      font-size: 1.1rem;
-      border: 2px solid #e2e8f0;
-      border-radius: 0.75rem;
-      outline: none;
-      transition: border 0.3s;
-    }
-
-    #country-input:focus {
-      border-color: var(--primary);
-    }
-
-    .buttons {
-      display: flex;
-      gap: 1rem;
-    }
-
-    button {
-      flex: 1;
-      padding: 1rem;
-      font-size: 1.05rem;
-      font-weight: 600;
-      border: none;
-      border-radius: 0.75rem;
-      cursor: pointer;
-      transition: all 0.3s ease;
-    }
-
-    #search-button {
-      background: var(--primary);
-      color: white;
-    }
-
-    #search-button:hover {
-      background: var(--primary-dark);
-      transform: translateY(-2px);
-    }
-
-    #clear-button {
-      background: #ef4444;
-      color: white;
-    }
-
-    #clear-button:hover {
-      background: #dc2626;
-      transform: translateY(-2px);
-    }
-
-    .loading, .error {
-      text-align: center;
-      padding: 2rem;
-      font-size: 1.2rem;
-      color: white;
-      background: rgba(0,0,0,0.3);
-      border-radius: 1rem;
-    }
-
-    .hidden {
-      display: none;
-    }
-
-    .result-container {
-      background: var(--card-bg);
-      border-radius: 1rem;
-      padding: 2rem;
-      box-shadow: var(--shadow);
-      display: grid;
-      gap: 2rem;
-    }
-
-    .country-header {
-      text-align: center;
-    }
-
-    .country-header h2 {
-      font-size: 2.2rem;
-      margin-bottom: 0.5rem;
-      color: var(--text-dark);
-    }
-
-    .emblems {
-      display: flex;
-      justify-content: center;
-      gap: 3rem;
-      flex-wrap: wrap;
-      margin: 1.5rem 0;
-    }
-
-    .flag-img, .coat-img {
-      max-width: 220px;
-      height: auto;
-      border-radius: 0.8rem;
-      box-shadow: 0 8px 20px rgba(0,0,0,0.2);
-      transition: transform 0.3s;
-    }
-
-    .flag-img:hover, .coat-img:hover {
-      transform: scale(1.05);
-    }
-
-    .info-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-      gap: 1.5rem;
-    }
-
-    .info-card {
+      padding: 40px 20px 80px;
+      color: #1e293b;
       background: #f8fafc;
-      padding: 1.2rem;
-      border-radius: 0.8rem;
-      border-left: 5px solid var(--primary);
     }
-
-    .info-card h4 {
-      font-size: 1rem;
-      color: var(--text-light);
-      margin-bottom: 0.6rem;
+    h1, h2, h3 {
+      color: #0f172a;
     }
-
-    .info-card span {
-      font-size: 1.15rem;
+    h1 {
+      text-align: center;
+      font-size: 2.8rem;
+      margin: 0.5em 0 0.4em;
+      line-height: 1.1;
+    }
+    h2 {
+      font-size: 1.9rem;
+      border-bottom: 2px solid #e2e8f0;
+      padding-bottom: 0.35em;
+      margin: 2.4em 0 1em;
+    }
+    h3 {
+      font-size: 1.45rem;
+      margin: 2em 0 0.9em;
+      color: #334155;
+    }
+    .section-number {
+      color: #64748b;
+      font-weight: 500;
+      margin-right: 0.6em;
+    }
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      margin: 1.4em 0;
+      font-size: 0.96em;
+    }
+    th, td {
+      border: 1px solid #cbd5e1;
+      padding: 11px 14px;
+      text-align: left;
+    }
+    th {
+      background: #e2e8f0;
       font-weight: 600;
-      color: var(--text-dark);
+      color: #1e293b;
     }
-
-    .map-link {
-      display: inline-block;
-      margin-top: 1rem;
-      color: var(--primary);
-      font-weight: 600;
+    tr:nth-child(even) {
+      background: #f1f5f9;
+    }
+    .highlight {
+      background: #fef3c7;
+      padding: 1px 6px;
+      border-radius: 3px;
+    }
+    pre, code {
+      font-family: 'Consolas', 'Courier New', monospace;
+      background: #f1f5f9;
+      padding: 0.3em 0.55em;
+      border-radius: 5px;
+      font-size: 0.94em;
+    }
+    pre {
+      padding: 1.2em;
+      overflow-x: auto;
+      border: 1px solid #e2e8f0;
+      margin: 1.3em 0;
+    }
+    img {
+      max-width: 100%;
+      height: auto;
+      display: block;
+      margin: 2em auto;
+      border-radius: 8px;
+      box-shadow: 0 6px 20px rgba(0,0,0,0.08);
+    }
+    .img-caption {
+      text-align: center;
+      color: #64748b;
+      font-size: 0.92em;
+      margin-top: 0.6em;
+      margin-bottom: 2.5em;
+    }
+    .result-box {
+      background: #ecfdf5;
+      border-left: 5px solid #10b981;
+      padding: 1.3em 1.6em;
+      margin: 1.8em 0;
+      border-radius: 6px;
+      font-size: 1.05em;
+    }
+    .conclusion {
+      background: #eff6ff;
+      border-left: 5px solid #3b82f6;
+      padding: 1.4em 1.7em;
+      margin: 2.2em 0;
+      border-radius: 6px;
+    }
+    .emoji-h1 {
+      font-size: 1.1em;
+      margin-right: 0.2em;
+    }
+    hr {
+      border: none;
+      border-top: 1px solid #e2e8f0;
+      margin: 3.5em 0;
+    }
+    footer {
+      text-align: center;
+      color: #94a3b8;
+      margin-top: 5em;
+      font-size: 0.95em;
+    }
+    a {
+      color: #2563eb;
       text-decoration: none;
     }
-
-    .map-link:hover {
+    a:hover {
       text-decoration: underline;
-    }
-
-    @media (max-width: 600px) {
-      .emblems { gap: 1.5rem; }
-      .flag-img, .coat-img { max-width: 180px; }
     }
   </style>
 </head>
 <body>
-  <div class="app-container">
-    <header class="header">
-      <h1>Globe Insights Explorer</h1>
-      <p>Discover detailed profiles of countries worldwide</p>
-    </header>
 
-    <div class="search-section">
-      <input type="text" id="country-input" placeholder="Type a country name (e.g., Norway, Japan)" autocomplete="off" />
-      <div class="buttons">
-        <button id="search-button">Explore</button>
-        <button id="clear-button">Clear</button>
-      </div>
-    </div>
+<h1><span class="emoji-h1">🌊</span> CFD Analysis of Hot–Cold Water Mixing<br>in a T-Junction Duct</h1>
+<p style="text-align:center; font-size:1.2em; color:#475569; margin-bottom:3em;">
+  <strong>SOLIDWORKS Flow Simulation 2025</strong>
+</p>
 
-    <div id="loading" class="loading hidden">Loading insights...</div>
-    <div id="result-container" class="result-container hidden"></div>
-    <div id="error-message" class="error hidden"></div>
-  </div>
+<hr>
 
-  <script>
-    const searchBtn = document.getElementById('search-button');
-    const clearBtn = document.getElementById('clear-button');
-    const countryInput = document.getElementById('country-input');
-    const resultDiv = document.getElementById('result-container');
-    const loadingDiv = document.getElementById('loading');
-    const errorDiv = document.getElementById('error-message');
+<h2><span class="section-number">1</span> General Information</h2>
 
-    async function fetchCountryInfo(name) {
-      if (!name.trim()) {
-        showError('Please enter a country name to explore.');
-        return;
-      }
+<p><strong>Objective:</strong> Predict mixing behavior, temperature distribution, velocity field, pressure losses and density variation during hot and cold water mixing in a T-junction duct using Computational Fluid Dynamics — before any physical prototype is built.</p>
 
-      showLoading(true);
-      clearError();
-      resultDiv.innerHTML = '';
-      resultDiv.classList.add('hidden');
+<h3>1.1 Analysis Environment</h3>
+<table>
+  <tr><th>Item</th><th>Value</th></tr>
+  <tr><td>Software</td><td>Flow Simulation 2025 SP1.0 (Build 6588)</td></tr>
+  <tr><td>CPU</td><td>Intel(R) Celeron(R) J4105 @ 1.50 GHz</td></tr>
+  <tr><td>RAM</td><td>12.1 GB total / ~2 GB used</td></tr>
+  <tr><td>OS</td><td>Windows 11 (10.0.22631)</td></tr>
+</table>
 
-      try {
-        const res = await fetch(`https://restcountries.com/v3.1/name/${name}`);
-        if (!res.ok) throw new Error('Country not found');
+<h3>1.2 Model & Project</h3>
+<ul>
+  <li><strong>Model name:</strong> Pipe CFD Results.SLDPRT</li>
+  <li><strong>Project name:</strong> Pipe CFD Project</li>
+  <li><strong>Unit system:</strong> SI (m-kg-s)</li>
+  <li><strong>Analysis type:</strong> Internal flow (not excluding internal spaces)</li>
+</ul>
 
-        const data = await res.json();
-        if (data.length === 0) throw new Error('No results');
+<h3>1.4 Computational Domain Size</h3>
+<table>
+  <tr><th>Direction</th><th>Min</th><th>Max</th><th>Size</th></tr>
+  <tr><td>X</td><td>-3.880 m</td><td>3.880 m</td><td>7.760 m</td></tr>
+  <tr><td>Y</td><td>-3.530 m</td><td>3.530 m</td><td>7.060 m</td></tr>
+  <tr><td>Z</td><td>-3.530 m</td><td>4.880 m</td><td>8.410 m</td></tr>
+</table>
 
-        // Use the first match
-        displayCountry(data[0]);
-      } catch (err) {
-        if (err.message.includes('not found') || err.message.includes('No results')) {
-          showError('Country not found. Try a different name or check spelling.');
-        } else {
-          showError('An error occurred. Please try again later.');
-        }
-      } finally {
-        showLoading(false);
-      }
-    }
+<h3>1.5 Simulation Parameters — Summary</h3>
 
-    function displayCountry(country) {
-      const {
-        name: { common: name },
-        flags: { svg: flag },
-        coatOfArms: { svg: coat } = { svg: null },
-        capital = ['N/A'],
-        region,
-        subregion = 'N/A',
-        population,
-        area,
-        gini,
-        car: { side: drivingSide = 'N/A' } = {},
-        timezones = ['N/A'],
-        maps: { googleMaps } = {},
-        landlocked = false,
-        currencies = {},
-        languages = {}
-      } = country;
+<h4>Mesh</h4>
+<ul>
+  <li>Basic mesh: 82 × 70 × 90 cells</li>
+  <li>Total cells: <strong>675 816</strong></li>
+  <li>Fluid cells: 675 816</li>
+  <li>Solid cells: 99 020</li>
+  <li>Partial cells: 64 924</li>
+</ul>
 
-      const currencyKey = Object.keys(currencies)[0];
-      const currency = currencyKey ? `${currencies[currencyKey].name} (${currencyKey})` : 'N/A';
+<h4>Physical Models</h4>
+<ul>
+  <li>Heat transfer: <strong>On</strong></li>
+  <li>Flow type: Laminar & Turbulent</li>
+  <li>Time-dependent: <strong>Off</strong> (steady-state)</li>
+  <li>Gravity: Off</li>
+  <li>Default wall roughness: 0 μm</li>
+</ul>
 
-      const langList = Object.values(languages).join(', ') || 'N/A';
+<h4>Fluid</h4>
+<ul>
+  <li>Water (pre-defined library)</li>
+</ul>
 
-      const giniText = gini ? `${gini?.[Object.keys(gini)[0]]} (year ${Object.keys(gini)[0]})` : 'N/A';
+<h4>Initial Conditions</h4>
+<ul>
+  <li>Static pressure: 101 325 Pa</li>
+  <li>Temperature: 20.05 °C</li>
+  <li>Turbulence intensity: 0.1%</li>
+  <li>Turbulence length: 0.003 m</li>
+</ul>
 
-      resultDiv.innerHTML = `
-        <div class="country-header">
-          <h2>${name}</h2>
-        </div>
+<h4>Boundary Conditions</h4>
+<table>
+  <tr><th>Name</th><th>Type</th><th>Mass flow</th><th>Temperature</th><th>Face</th></tr>
+  <tr><td>Inlet 1 (Hot)</td><td>Inlet Mass Flow</td><td>2.000 kg/s</td><td>100.0 °C</td><td>Face&lt;1&gt;</td></tr>
+  <tr><td>Inlet 2 (Cold)</td><td>Inlet Mass Flow</td><td>2.000 kg/s</td><td>5.00 °C</td><td>Face&lt;2&gt;</td></tr>
+  <tr><td>Outlet</td><td>Environment Pressure</td><td>—</td><td>20.05 °C (initial)</td><td>Face&lt;1&gt;</td></tr>
+</table>
 
-        <div class="emblems">
-          <img src="${flag}" alt="Flag of ${name}" class="flag-img" />
-          ${coat ? `<img src="${coat}" alt="Coat of Arms of ${name}" class="coat-img" />` : ''}
-        </div>
+<p style="font-size:0.95em; color:#64748b;">All inlets use turbulent boundary layer, 0.1% turbulence intensity, 3 mm length scale.</p>
 
-        <div class="info-grid">
-          <div class="info-card">
-            <h4>Capital</h4>
-            <span>${capital[0] || 'N/A'}</span>
-          </div>
-          <div class="info-card">
-            <h4>Region / Subregion</h4>
-            <span>${region} / ${subregion}</span>
-          </div>
-          <div class="info-card">
-            <h4>Population</h4>
-            <span>${population.toLocaleString()}</span>
-          </div>
-          <div class="info-card">
-            <h4>Area</h4>
-            <span>${area ? area.toLocaleString() + ' km²' : 'N/A'}</span>
-          </div>
-          <div class="info-card">
-            <h4>Currency</h4>
-            <span>${currency}</span>
-          </div>
-          <div class="info-card">
-            <h4>Languages</h4>
-            <span>${langList}</span>
-          </div>
-          <div class="info-card">
-            <h4>Driving Side</h4>
-            <span>${drivingSide}</span>
-          </div>
-          <div class="info-card">
-            <h4>Time Zone (main)</h4>
-            <span>${timezones[0]}</span>
-          </div>
-          <div class="info-card">
-            <h4>Landlocked?</h4>
-            <span>${landlocked ? 'Yes' : 'No'}</span>
-          </div>
-          <div class="info-card">
-            <h4>Gini Index (Inequality)</h4>
-            <span>${giniText}</span>
-          </div>
-        </div>
+<h3>1.6 Calculation Time</h3>
+<ul>
+  <li><strong>Total time:</strong> 3743 seconds (~62 minutes)</li>
+  <li><strong>Iterations:</strong> 212</li>
+</ul>
 
-        ${googleMaps ? `<a href="${googleMaps}" target="_blank" class="map-link">View on Google Maps →</a>` : ''}
-      `;
+<hr>
 
-      resultDiv.classList.remove('hidden');
-    }
+<h2><span class="section-number">2</span> Results</h2>
 
-    function showLoading(show) {
-      loadingDiv.classList.toggle('hidden', !show);
-    }
+<h3>2.2 Global Min–Max Values</h3>
 
-    function showError(msg) {
-      errorDiv.textContent = msg;
-      errorDiv.classList.remove('hidden');
-    }
+<table>
+  <tr>
+    <th>Parameter</th>
+    <th>Minimum</th>
+    <th>Maximum</th>
+  </tr>
+  <tr><td>Density (Fluid) [kg/m³]</td><td>958.22</td><td>1000.63</td></tr>
+  <tr><td>Pressure [Pa]</td><td>101317.01</td><td>101331.59</td></tr>
+  <tr><td>Temperature [°C]</td><td>4.82</td><td>101.08</td></tr>
+  <tr><td>Velocity [m/s]</td><td>0</td><td><strong>0.139</strong></td></tr>
+  <tr><td>Vorticity [1/s]</td><td>8.89e-27</td><td><strong>14.97</strong></td></tr>
+  <tr><td>Relative Pressure [Pa]</td><td>-7.99</td><td>6.59</td></tr>
+  <tr><td>Shear Stress [Pa]</td><td>0</td><td>0.38</td></tr>
+  <tr><td>Total Enthalpy Flux [W/m²]</td><td>-1.553×10⁸</td><td>6.952×10⁷</td></tr>
+</table>
 
-    function clearError() {
-      errorDiv.textContent = '';
-      errorDiv.classList.add('hidden');
-    }
+<h3>2.3 Flow & Thermal Behavior</h3>
 
-    // Event listeners
-    searchBtn.addEventListener('click', () => fetchCountryInfo(countryInput.value));
+<div class="result-box">
+  <strong>Key observations:</strong><br><br>
+  • Very low velocity regime — maximum velocity only <strong>0.139 m/s</strong><br>
+  • Small pressure variation → stable flow, minimal losses<br>
+  • Wide temperature range (4.8 °C – 101.1 °C) confirms effective thermal mixing<br>
+  • Density variation follows temperature (temperature-dependent behavior)<br>
+  • Elevated vorticity near junction indicates localized mixing
+</div>
 
-    clearBtn.addEventListener('click', () => {
-      countryInput.value = '';
-      resultDiv.innerHTML = '';
-      resultDiv.classList.add('hidden');
-      clearError();
-      showLoading(false);
-    });
+<h3>Simulation Images</h3>
 
-    // Bonus: Search when pressing Enter
-    countryInput.addEventListener('keypress', (e) => {
-      if (e.key === 'Enter') {
-        fetchCountryInfo(countryInput.value);
-      }
-    });
-  </script>
+<img src="PipeCFD0.png" alt="Velocity field">
+<div class="img-caption">Velocity magnitude distribution</div>
+
+<img src="PipeCFD1.png" alt="Temperature distribution">
+<div class="img-caption">Temperature field – clear mixing zone visible</div>
+
+<img src="PipeCFD2.png" alt="Pressure distribution">
+<div class="img-caption">Pressure field – very low variation</div>
+
+<img src="PipeCFD3.png" alt="Density distribution">
+<div class="img-caption">Fluid density variation</div>
+
+<img src="PipeCFD4.png" alt="Streamlines">
+<div class="img-caption">Flow streamlines showing mixing behavior</div>
+
+<img src="PipeCFD5.png" alt="Vorticity">
+<div class="img-caption">Vorticity – localized mixing at junction</div>
+
+<hr>
+
+<h2><span class="section-number">3</span> Interpretation & Engineering Significance</h2>
+
+<table>
+  <tr>
+    <th>Aspect</th>
+    <th>Observation</th>
+    <th>Engineering Significance</th>
+  </tr>
+  <tr>
+    <td>Temperature</td>
+    <td>4.82 °C – 101.08 °C</td>
+    <td>Strong thermal mixing – outlet temperature shows good homogenization</td>
+  </tr>
+  <tr>
+    <td>Velocity</td>
+    <td>Max 0.139 m/s</td>
+    <td>Low-speed regime – suitable for controlled mixing, low turbulence</td>
+  </tr>
+  <tr>
+    <td>Pressure</td>
+    <td>Very small variation</td>
+    <td>Low pressure loss → energy efficient, reduced pumping power</td>
+  </tr>
+  <tr>
+    <td>Density</td>
+    <td>958–1001 kg/m³</td>
+    <td>Temperature-dependent density correctly captured</td>
+  </tr>
+  <tr>
+    <td>Vorticity</td>
+    <td>Increased near junction</td>
+    <td>Localized rotational flow enhances mixing without instability</td>
+  </tr>
+  <tr>
+    <td>Shear Stress</td>
+    <td>Max 0.38 Pa</td>
+    <td>Very low values – flow remains stable and safe</td>
+  </tr>
+  <tr>
+    <td>Overall</td>
+    <td>Stable, efficient mixing</td>
+    <td>Good baseline design for real-world hot-cold blending applications</td>
+  </tr>
+</table>
+
+<hr>
+
+<h2><span class="section-number">4</span> Conclusion</h2>
+
+<div class="conclusion">
+  <strong>This steady-state CFD study confirms that SolidWorks Flow Simulation can reliably predict</strong><br><br>
+  • effective thermal mixing of hot (100 °C) and cold (5 °C) water streams<br>
+  • very low pressure losses<br>
+  • stable low-velocity flow<br>
+  • realistic temperature-dependent density variation<br><br>
+  The results validate the current T-junction design as an efficient mixing device with minimal energy penalty.
+</div>
+
+<h3>Limitations</h3>
+<ul>
+  <li>Steady-state simulation only</li>
+  <li>Low flow velocities</li>
+  <li>No turbulence model comparison performed</li>
+  <li>No experimental validation</li>
+</ul>
+
+<hr>
+
+<h2><span class="section-number">5</span> Industrial Applications</h2>
+
+<ul style="font-size:1.05em;">
+  <li>HVAC — hot/cold water mixing in distribution systems</li>
+  <li>Power plants — cooling water blending</li>
+  <li>Chemical & process industries — fluid temperature control</li>
+  <li>District heating & cooling networks</li>
+  <li>Food & beverage — thermal processing lines</li>
+</ul>
+
+<hr>
+
+<footer>
+  <p>Project documentation — SOLIDWORKS Flow Simulation 2025</p>
+  <p style="margin-top:1.5em;">Generated • February 2026</p>
+</footer>
+
 </body>
 </html>
-
