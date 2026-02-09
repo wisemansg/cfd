@@ -265,7 +265,7 @@ This project simulates the mixing process inside a cylindrical stirred tank equi
 
 ## 📄 Download Full Report (PDF)
 
-[⬇️ Download PDF](https://github.com/YOUR_USERNAME/YOUR_REPO/raw/main/Stirred%20Tank%20Mixing%20Simulation.pdf)
+[⬇️ Download PDF](Stirred%20Tank%20Mixing%20Simulation.pdf)
 ---
 
 ## 🧠 Discussion – Key Engineering Insights
