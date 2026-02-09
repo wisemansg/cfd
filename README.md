@@ -308,7 +308,7 @@ This transient CFD study successfully demonstrates the capability of **SolidWork
 
 ---
 
-## 🏭 Real-World Industrial Applications (2025–2026)
+## 🏭 Real-World Industrial Applications 
 
 - **Pharmaceutical & Bioprocessing** — uniform mixing in bioreactors for monoclonal antibodies, vaccines, cell therapies  
 - **Chemical Industry** — polymerization, crystallization, pH control, and catalytic reactions  
