@@ -96,21 +96,23 @@ The simulation tracked the following parameters:
 
 ### 7.2 Graphical Outputs
 
-![PipeCFD0](PipeCFD0.png)
+![PipeCFD0](./cfdassets/PipeCFD0.png)
 
-![PipeCFD1](PipeCFD1.png)
+![PipeCFD1](./cfdassets/PipeCFD1.png)
 
-![PipeCFD2](PipeCFD2.png)
+![PipeCFD2](./cfdassets/PipeCFD2.png)
 
-![PipeCFD3](PipeCFD3.png)
+![PipeCFD3](./cfdassets/PipeCFD3.png)
 
-![PipeCFD4](PipeCFD4.png)
+![PipeCFD4](./cfdassets/PipeCFD4.png)
 
-![PipeCFD5](PipeCFD5.png)
+![PipeCFD5](./cfdassets/PipeCFD5.png)
 
 ## 📄 Download Full CFD Report
 
 [⬇️ Download PDF](https://github.com/wisemansg/cfd/raw/main/CFD%20Analysis%20of%20Hot%E2%80%93Cold%20Water%20Mixing%20in%20a%20T-Junction%20Duct%20Using%20SolidWorks%20Flow%20Simulation.pdf)
+
+---
 
 ---
 
@@ -256,16 +258,16 @@ This project simulates the mixing process inside a cylindrical stirred tank equi
 
 ## 🖼️ Visualization Highlights
 
-![ST0](ST0.png)
-![ST1](ST1.png)
-![ST2](ST2.png)
-![ST3](ST3.png)
-![ST4](ST4.png)
-![ST5](ST5.png)
+![ST0](./cfdassets/ST0.png)
+![ST1](./cfdassets/ST1.png)
+![ST2](./cfdassets/ST2.png)
+![ST3](./cfdassets/ST3.png)
+![ST4](./cfdassets/ST4.png)
+![ST5](./cfdassets/ST5.png)
 
 ## 📄 Download Full Report (PDF)
 
-[⬇️ Download PDF](Stirred%20Tank%20Mixing%20Simulation.pdf)
+[⬇️ Download PDF](./cfdassets/Stirred%20Tank%20Mixing%20Simulation.pdf)
 ---
 
 ## 🧠 Discussion – Key Engineering Insights
