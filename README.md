@@ -110,9 +110,7 @@ The simulation tracked the following parameters:
 
 ## 📄 Download Full CFD Report
 
-[⬇️ Download PDF](https://github.com/wisemansg/cfd/raw/main/CFD%20Analysis%20of%20Hot%E2%80%93Cold%20Water%20Mixing%20in%20a%20T-Junction%20Duct%20Using%20SolidWorks%20Flow%20Simulation.pdf)
-
----
+[⬇️ Download PDF](https://github.com/wisemansg/cfd/blob/main/cfdassets/CFD%20Analysis%20of%20Hot%E2%80%93Cold%20Water%20Mixing%20in%20a%20T-Junction%20Duct%20Using%20SolidWorks%20Flow%20Simulation.pdf)
 
 ---
 
@@ -267,7 +265,7 @@ This project simulates the mixing process inside a cylindrical stirred tank equi
 
 ## 📄 Download Full Report (PDF)
 
-[⬇️ Download PDF](./cfdassets/Stirred%20Tank%20Mixing%20Simulation.pdf)
+[⬇️ Download PDF](https://github.com/wisemansg/cfd/blob/main/cfdassets/Stirred%20Tank%20Mixing%20Simulation.pdf)
 ---
 
 ## 🧠 Discussion – Key Engineering Insights
